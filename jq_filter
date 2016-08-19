@@ -1,14 +1,24 @@
-[.[] |
-  {
-    name: .name, 
-    releaseDate: (if .releaseDate == null then "0001-01-01" else .releaseDate end)
-  }
-]
+# filter out version without a release date since TimelineJS doesn't like null
+[.[] | select(.releaseDate != null)]
 |
 {
+  title: {
+        media: {
+          url: "",
+          caption: "qTest Release Timeline",
+          credit: ""
+        },
+        text: {
+          headline: "qTest Release Timeline",
+          text: ""
+        }
+  },
   events: [.[] | 
     {
-      text: .name, 
+      text: {
+        headline: .name,
+        text: (if .description == null then .name else .description end)
+      },
       start_date: { 
         year: .releaseDate | strptime("%Y-%m-%d") | .[0],
         month: .releaseDate | strptime("%Y-%m-%d") | (.[1] + 1),
