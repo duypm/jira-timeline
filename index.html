@@ -8,8 +8,14 @@
 
     <script>
       $(function () {
+        var options = {
+          start_at_end: true,
+          scale_factor: 10,
+          timenav_height_percentage: 75
+        };
+
         $.getJSON("timeline.json", function(json) {
-          window.timeline = new TL.Timeline('timeline-embed', json);
+          window.timeline = new TL.Timeline('timeline-embed', json, options);
         });
       });
     </script>
