@@ -10,9 +10,9 @@
     {
       text: .name, 
       start_date: { 
-        year: .releaseDate | strptime("%Y-%m-%d") | .[0], 
-        month: .releaseDate | strptime("%Y-%m-%d") | .[1], 
-        day: .releaseDate | strptime("%Y-%m-%d") | .[2] } 
+        year: .releaseDate | strptime("%Y-%m-%d") | .[0],
+        month: .releaseDate | strptime("%Y-%m-%d") | (.[1] + 1),
+        day: .releaseDate | strptime("%Y-%m-%d") | .[2] }
     }
   ]
 }
