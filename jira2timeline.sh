@@ -8,8 +8,5 @@ curl -s -X GET \
   -H "Content-Type: application/json" \
   "https://agile.qasymphony.com/rest/api/2/project/QTE/versions" \
   \
-> qte.json
-
-cat qte.json \
-  | jq -f jq_filter \
-  > timeline.json
+| jq -f jq_filter \
+> timeline.json
