@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# export your JIRA_BASE64 authentication in this file so it won't be tracked by git
+source ./jira64.sh
+
 curl -D- -X GET \
   -H "Authorization: Basic $JIRA_BASE64" \
   -H "Content-Type: application/json" \
