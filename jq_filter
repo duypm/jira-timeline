@@ -1,0 +1,18 @@
+[.[] |
+  {
+    name: .name, 
+    releaseDate: (if .releaseDate == null then "0001-01-01" else .releaseDate end)
+  }
+]
+|
+{
+  events: [.[] | 
+    {
+      text: .name, 
+      start_date: { 
+        year: .releaseDate | strptime("%Y-%m-%d") | .[0], 
+        month: .releaseDate | strptime("%Y-%m-%d") | .[1], 
+        day: .releaseDate | strptime("%Y-%m-%d") | .[2] } 
+    }
+  ]
+}
